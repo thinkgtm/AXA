@@ -196,3 +196,51 @@
 .accordion > .accordion__item:nth-of-type(22) > .accordion__header {
   background-image: url("https://webserver-salesaxapartners-prd.lfr.cloud/documents/6103982/0/world-airfares.webp");
 }
+/* Ensure the mask behaves like a full-bleed background holder */
+.hero-banner__mask {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* Dark overlay across the full mask (sits above the bg, below content) */
+.hero-banner__mask::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.48);            /* adjust 0.35–0.65 to taste */
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Make sure content is above the overlay and readable */
+.hero-banner__container,
+.hero-banner__content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+/* Optional: subtle text shadow for extra contrast */
+.hero-banner__content h1,
+.hero-banner__content p {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.35);
+}
+
+/* Optional: smaller hero variant can have a slightly lighter overlay */
+.hero-banner--small .hero-banner__mask::after {
+  background: rgba(0,0,0,0.40);
+}
+
+/* Optional: comfy spacing so the hero breathes on all screens */
+.hero-banner--small .hero-banner__container {
+  padding: clamp(24px, 6vw, 64px) clamp(16px, 4vw, 40px);
+}
+
+/* Keep the search form visible/readable if you use it */
+.hero-banner--container .btn span,
+.hero-banner--container input::placeholder {
+  color: #fff;
+}
