@@ -1,0 +1,185 @@
+/* Hide the search form */
+.hero-banner--container {
+    display: none;
+}
+
+/* ============ LOGO GRID ACCORDION (TITLE ABOVE + SMALLER CENTERED LOGOS) ============ */
+
+/* 1) Main grid */
+.accordion {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+/* Title above tiles */
+.accordion > h2 {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  margin-bottom: 24px;
+  color: #00008f; /* AXA blue */
+}
+
+/* Responsive columns */
+@media (max-width: 1024px) {
+  .accordion { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .accordion { grid-template-columns: 1fr; }
+}
+
+/* Accordion layout */
+.accordion .accordion__item {
+  display: contents;
+}
+
+/* Body panels */
+.accordion .accordion__body {
+  grid-column: 1 / -1;
+  display: none;
+  padding: 24px;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  background: #fff;
+}
+
+/* Show on open */
+.accordion .accordion__item.is-open > .accordion__body,
+.accordion .accordion__header[aria-expanded="true"] + .accordion__body,
+.accordion .accordion__header.active + .accordion__body {
+  display: block;
+}
+
+/* 2) Header tiles */
+.accordion .accordion__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60%; /* ✅ smaller logo */
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 12px;
+  margin: 0 !important;
+  cursor: pointer;
+  transition: box-shadow .2s ease, transform .06s ease, border-color .2s ease, background-size .2s ease;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+
+/* Hover / focus styles */
+.accordion .accordion__header:hover {
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  background-size: 65%;
+}
+.accordion .accordion__header:active {
+  transform: translateY(1px);
+}
+.accordion .accordion__header:focus-visible {
+  outline: 3px solid #00008f;
+  outline-offset: 2px;
+}
+
+/* Selected/open look */
+.accordion .accordion__header[aria-expanded="true"] {
+  border-color: #00008f;
+  box-shadow: 0 0 0 3px color-mix(in srgb, #00008f 20%, transparent);
+}
+
+/* Body text */
+.accordion .accordion__body p { margin: 0 0 10px; }
+
+/* ============ LOGO ASSIGNMENTS (ORDER MATCHES YOUR DOM) ============ */
+
+/* 1. Direct with AXA Travel */
+.accordion > .accordion__item:nth-of-type(1) > .accordion__header {
+  background-image: url("https://webserver-salesaxapartners-prd.lfr.cloud/documents/d/neo-travel-uk/axa_logo_solid_rgb");
+}
+/* 2. AA Travel Insurance */
+.accordion > .accordion__item:nth-of-type(2) > .accordion__header {
+  background-image: url("https://webserver-salesaxapartners-prd.lfr.cloud/documents/6103982/0/aa.webp");
+}
+/* 3. ABTA Travel Insurance */
+.accordion > .accordion__item:nth-of-type(3) > .accordion__header {
+  background-image: url("https://webserver-salesaxapartners-prd.lfr.cloud/documents/6103982/0/abta-travel-insurance.webp");
+}
+/* 4. Big Blue Cover */
+.accordion > .accordion__item:nth-of-type(4) > .accordion__header {
+  background-image: url("https://webserver-salesaxapartners-prd.lfr.cloud/documents/6103982/0/big-blue-cover.webp");
+}
+/* 5. Cedartree */
+.accordion > .accordion__item:nth-of-type(5) > .accordion__header {
+  background-image: url("https://webserver-salesaxapartners-prd.lfr.cloud/documents/6103982/0/cedartree.webp");
+}
+/* 6. Cover For You */
+.accordion > .accordion__item:nth-of-type(6) > .accordion__header {
+  background-image: url("https://webserver-salesaxapartners-prd.lfr.cloud/documents/6103982/0/cover-for-you.webp");
+}
+/* 7. Coverwise */
+.accordion > .accordion__item:nth-of-type(7) > .accordion__header {
+  background-image: url("https://webserver-salesaxapartners-prd.lfr.cloud/documents/6103982/0/coverwise.webp");
+}
+/* 8. Go Travel Insurance */
+.accordion > .accordion__item:nth-of-type(8) > .accordion__header {
+  background-image: url("https://webserver-salesaxapartners-prd.lfr.cloud/documents/6103982/0/go-travel-insurance.webp");
+}
+/* 9. LeShuttle */
+.accordion > .accordion__item:nth-of-type(9) > .accordion__header {
+  background-image: url("https://webserver-salesaxapartners-prd.lfr.cloud/documents/6103982/0/leshuttle.webp");
+}
+/* 10. Insurefor.com */
+.accordion > .accordion__item:nth-of-type(10) > .accordion__header {
+  background-image: url("https://webserver-salesaxapartners-prd.lfr.cloud/documents/6103982/0/insurefor.webp");
+}
+/* 11. Jet2Insurance */
+.accordion > .accordion__item:nth-of-type(11) > .accordion__header {
+  background-image: url("https://webserver-salesaxapartners-prd.lfr.cloud/documents/6103982/0/jet2.webp");
+}
+/* 12. Loveit Coverit */
+.accordion > .accordion__item:nth-of-type(12) > .accordion__header {
+  background-image: url("https://webserver-salesaxapartners-prd.lfr.cloud/documents/6103982/0/loveit-coverit.webp");
+}
+/* 13. Leisure Guard Insurance Services */
+.accordion > .accordion__item:nth-of-type(13) > .accordion__header {
+  background-image: url("https://webserver-salesaxapartners-prd.lfr.cloud/documents/6103982/0/leisure-guard-insurance-service.webp");
+}
+/* 14. On the Beach */
+.accordion > .accordion__item:nth-of-type(14) > .accordion__header {
+  background-image: url("https://webserver-salesaxapartners-prd.lfr.cloud/documents/6103982/0/on-the-beach.webp");
+}
+/* 15. Puffin Insurance */
+.accordion > .accordion__item:nth-of-type(15) > .accordion__header {
+  background-image: url("https://webserver-salesaxapartners-prd.lfr.cloud/documents/6103982/0/puffin.webp");
+}
+/* 16. Select and Protect */
+.accordion > .accordion__item:nth-of-type(16) > .accordion__header {
+  background-image: url("https://webserver-salesaxapartners-prd.lfr.cloud/documents/6103982/0/select-and-protect.svg");
+}
+/* 17. Southdowns */
+.accordion > .accordion__item:nth-of-type(17) > .accordion__header {
+  background-image: url("https://webserver-salesaxapartners-prd.lfr.cloud/documents/6103982/0/southdowns.webp");
+}
+/* 18. SunWorld */
+.accordion > .accordion__item:nth-of-type(18) > .accordion__header {
+  background-image: url("https://webserver-salesaxapartners-prd.lfr.cloud/documents/6103982/0/sunworld.webp");
+}
+/* 19. The Co-operative Bank */
+.accordion > .accordion__item:nth-of-type(19) > .accordion__header {
+  background-image: url("https://webserver-salesaxapartners-prd.lfr.cloud/documents/6103982/0/the-co-operative-bank.webp");
+}
+/* 20. Travel Insurance Saver */
+.accordion > .accordion__item:nth-of-type(20) > .accordion__header {
+  background-image: url("https://webserver-salesaxapartners-prd.lfr.cloud/documents/6103982/0/travel-insurance-saver.svg");
+}
+/* 21. Trusted Insurances */
+.accordion > .accordion__item:nth-of-type(21) > .accordion__header {
+  background-image: url("https://webserver-salesaxapartners-prd.lfr.cloud/documents/6103982/0/trusted-insurances.webp");
+}
+/* 22. World Airfares */
+.accordion > .accordion__item:nth-of-type(22) > .accordion__header {
+  background-image: url("https://webserver-salesaxapartners-prd.lfr.cloud/documents/6103982/0/world-airfares.webp");
+}
