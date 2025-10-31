@@ -1,33 +1,39 @@
 /* Hide the search form */
 .hero-banner--container {
-    display: none;
+  display: none;
 }
 
-/* ============ LOGO GRID ACCORDION (TITLE ABOVE + SMALLER CENTERED LOGOS) ============ */
+/* ============ LOGO GRID ACCORDION (4 PER ROW + SPACED OUT SECTION) ============ */
 
-/* 1) Main grid */
+/* 1) Main section container */
 .accordion {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
+  gap: 24px;                         /* slightly more space between tiles */
   align-items: start;
+  padding: 60px 40px;                /* ✅ adds breathing room around the whole section */
+  background-color: #f9fafc;         /* subtle off-white backdrop for comfort */
+  border-radius: 20px;               /* soft rounded corners for the block */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03); /* very light ambient shadow */
 }
 
 /* Title above tiles */
 .accordion > h2 {
   grid-column: 1 / -1;
   text-align: center;
-  font-size: clamp(1.5rem, 2vw, 2rem);
-  margin-bottom: 24px;
+  font-size: clamp(1.6rem, 2vw, 2.1rem);
+  margin-bottom: 32px;
   color: #00008f; /* AXA blue */
+  font-weight: 600;
+  letter-spacing: 0.2px;
 }
 
-/* Responsive columns */
+/* Responsive layout */
 @media (max-width: 1024px) {
-  .accordion { grid-template-columns: repeat(2, 1fr); }
+  .accordion { grid-template-columns: repeat(2, 1fr); padding: 40px 24px; }
 }
 @media (max-width: 520px) {
-  .accordion { grid-template-columns: 1fr; }
+  .accordion { grid-template-columns: 1fr; padding: 30px 16px; }
 }
 
 /* Accordion layout */
@@ -39,13 +45,15 @@
 .accordion .accordion__body {
   grid-column: 1 / -1;
   display: none;
-  padding: 24px;
+  padding: 32px;
   border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 12px;
+  border-radius: 16px;
   background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  margin-top: 16px;
 }
 
-/* Show on open */
+/* Show when active */
 .accordion .accordion__item.is-open > .accordion__body,
 .accordion .accordion__header[aria-expanded="true"] + .accordion__body,
 .accordion .accordion__header.active + .accordion__body {
@@ -61,19 +69,20 @@
   background-color: #fff;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 60%; /* ✅ smaller logo */
-  border: 1px solid rgba(0,0,0,0.1);
+  background-size: 60%;              /* smaller centered logo */
+  border: 1px solid rgba(0,0,0,0.08);
   border-radius: 12px;
   margin: 0 !important;
   cursor: pointer;
-  transition: box-shadow .2s ease, transform .06s ease, border-color .2s ease, background-size .2s ease;
+  transition: all .25s ease;
   text-indent: -9999px;
   overflow: hidden;
 }
 
-/* Hover / focus styles */
+/* Hover / focus effects */
 .accordion .accordion__header:hover {
-  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  box-shadow: 0 8px 18px rgba(0,0,0,.05);
+  transform: translateY(-3px);
   background-size: 65%;
 }
 .accordion .accordion__header:active {
@@ -84,14 +93,18 @@
   outline-offset: 2px;
 }
 
-/* Selected/open look */
+/* Open/selected look */
 .accordion .accordion__header[aria-expanded="true"] {
   border-color: #00008f;
   box-shadow: 0 0 0 3px color-mix(in srgb, #00008f 20%, transparent);
 }
 
 /* Body text */
-.accordion .accordion__body p { margin: 0 0 10px; }
+.accordion .accordion__body p {
+  margin: 0 0 10px;
+  line-height: 1.6;
+  color: #333;
+}
 
 /* ============ LOGO ASSIGNMENTS (ORDER MATCHES YOUR DOM) ============ */
 
